@@ -1,72 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--TITLE OF THE PAGE-->
-  <title>Authentication Login Page</title>
-<!-- LINKING CSS FILE-->
-  <!-- MAIN CSS FILE-->
-  <link rel="stylesheet" href="style.css">
-  <!--ONLNE CSS FOR ICON-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-</head>
-
-<body>
-  <div class="wrapper">
-    <header>Login Authentication</header>
-
-    <!--FORM SECTION-->
-    <form action="#">
-
-      <!--EMIAL SECTION-->
-      <div class="field email">
-        <div class="input-area">
-          <input id="email" type="text" placeholder="Enter Email Address">
-          <i class="icon fas fa-envelope"></i>
-          <i class="error error-icon fas fa-exclamation-circle"></i>
-        </div>
-
-        <!--EMAIL ERROR-->
-        <div class="error error-txt">Email is required</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Forgot Password</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Forgot Password?</h2>
+      <p>We emailed you the <b>six digit OTP</b> code to your registered email  <br/> Enter the code below to confirm your email address.</p>
+      <button id="resent" class="bn632-hover bn27" onclick="resent()">Re-sent</button>
+      <div class="code-container">
+        <input type="number" class="code" placeholder="0" min="0" max="9" required>
+        <input type="number" class="code" placeholder="0" min="0" max="9" required>
+        <input type="number" class="code" placeholder="0" min="0" max="9" required>
+        <input type="number" class="code" placeholder="0" min="0" max="9" required>
+        <input type="number" class="code" placeholder="0" min="0" max="9" required>
+        <input type="number" class="code" placeholder="0" min="0" max="9" required>
       </div>
-
-      <!--PASSWORD SECTION-->
-      <div class="field password">
-        <div class="input-area">
-          <input id="password" type="password" placeholder="Enter Password">
-          <i class="icon fas fa-lock"></i>
-          <i class="error error-icon fas fa-exclamation-circle"></i>
-        </div>
-
-        <!--PASSWORD ERRORS-->
-        <div class="error error-txt">Password is required<br>
-          <ul>
-            <li>Minimum password length is 8</li>
-            <li>Require at least one lowercase letter</li>
-            <li>Require at least one uppercase letter</li>
-            <li>Require at least one number</li>
-            <li>Require at least one special character</li>
-          </ul>
-        </div>
-      </div>
-
-      <!--FORGOT PASSWORD SECTION-->
-      <div class="pass-txt"><a href="forgotpassword\index.html">Forgot password?</a></div>
-      <input type="submit" value="Take Me In" onclick="login()">
-    </form>
-
-    <!--NEW ACCOUNT SECTION-->
-    <div class="sign-txt">No Account? <a href="regiform.html">Create your Account</a></div>
-    <div>
-      <p class="createdby"></p>
+      <Button id="submit" class="bn632-hover bn26" value="submit" onclick="submit()">Submit</Button>
+      <br><br>
+      <small class="credit">
+        All rights reserved @Sufiyan-2023
+      </small>
     </div>
-  </div>
-
-  <!--LINKING JS FILE-->
-  <script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

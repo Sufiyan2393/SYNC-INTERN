@@ -1,67 +1,25 @@
-const form = document.querySelector("form");
-eField = form.querySelector(".email"),
-eInput = eField.querySelector("input"),
-pField = form.querySelector(".password"),
-pInput = pField.querySelector("input");
+const codes = document.querySelectorAll('.code')
 
-form.onsubmit = (e)=>{
-  e.preventDefault();
-  (eInput.value == "") ? eField.classList.add("shake", "error") : checkEmail();
-  (pInput.value == "") ? pField.classList.add("shake", "error") : checkPass();
+codes[0].focus()
 
-  setTimeout(()=>{
-    eField.classList.remove("shake");
-    pField.classList.remove("shake");
-  }, 500);
+codes.forEach((code, idx) => {
+    code.addEventListener('keydown', (e) => {
+        if(e.key >= 0 && e.key <=9) {
+            codes[idx].value = ''
+            setTimeout(() => codes[idx + 1].focus(), 10)
+        } else if(e.key === 'Backspace') {
+            setTimeout(() => codes[idx - 1].focus(), 10)
+        }
+    })
+})
 
-  eInput.onkeyup = ()=>{checkEmail();}
-  pInput.onkeyup = ()=>{checkPass();}
-
-  function checkEmail(){
-    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if(!eInput.value.match(pattern)){
-      eField.classList.add("error");
-      eField.classList.remove("valid");
-      let errorTxt = eField.querySelector(".error-txt");
-
-      (eInput.value != "") ? errorTxt.innerText = "Valid email is required: pqr@abc.xyz" : errorTxt.innerText = "Email can't be blank";
-    }else{
-      eField.classList.remove("error");
-      eField.classList.add("valid");
-    }
-  }
-
-  function checkPass(){
-    if(pInput.value == ""){
-      pField.classList.add("error");
-      pField.classList.remove("valid");
-    }else{
-      pField.classList.remove("error");
-      pField.classList.add("valid");
-    }
-  }
-
-  if(!eField.classList.contains("error") && !pField.classList.contains("error")){
-    window.location.href = form.getAttribute("action");
-  }
+function submit() {
+    document.getElementById("submit");
+    alert("A new password sent on your email. Please change it once you Login !!!");
+    window.location.href="index.html";
 }
 
-function login(){
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if (email == "") {
-    alert("Email field must be filled out");
-    return false;
-
+function resent() {
+    document.getElementById("resent");
+    alert("New OTP sent on your registered E-mail");
 }
-if (!email.match(emailRegex)) {
-  alert("Please enter a valid email address");
-  return false;
-}
-if (password == "") {
-  alert("Password field must be filled out");
-  return false;
-}
-alert("Login Successfully")
-return true;}
